@@ -10,6 +10,7 @@ describe Solution do
 
   context "#analyze_file" do
     it "creates 3 line analyzers" do
+      expect(solution.analyzers.length).to eq 0
       solution.analyze_file
       expect(solution.analyzers.length).to eq 3
     end

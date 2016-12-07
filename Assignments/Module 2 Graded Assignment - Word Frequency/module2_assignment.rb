@@ -32,8 +32,11 @@ class Solution
 
   attr_reader :analyzers, :highest_count_across_lines, :highest_count_words_across_lines
 
-  def analyze_file()
+  def initialize()
     @analyzers = Array.new()
+  end
+  
+  def analyze_file()
     c = 1
     File.open('test.txt', 'r') do |f|
       f.each_line do |line|
