@@ -1,0 +1,675 @@
+WEBVTT
+
+1
+00:00:00.058 --> 00:00:08.516
+[MUSIC]
+
+2
+00:00:08.516 --> 00:00:10.400
+Hi and welcome to Lecture 6.
+
+3
+00:00:10.400 --> 00:00:14.030
+In this lecture we will talk
+about different kinds of strings.
+
+4
+00:00:14.030 --> 00:00:15.820
+That Ruby supports.
+
+5
+00:00:15.820 --> 00:00:19.630
+We also see many different methods
+that are very useful in processing
+
+6
+00:00:19.630 --> 00:00:20.250
+the string API.
+
+7
+00:00:20.250 --> 00:00:23.280
+And finally we'll talk about symbols.
+
+8
+00:00:24.650 --> 00:00:28.410
+So Ruby has a single
+quote literal string and
+
+9
+00:00:28.410 --> 00:00:33.060
+the single quote strings and
+Ruby are very literal.
+
+10
+00:00:33.060 --> 00:00:35.090
+They show almost everything as is.
+
+11
+00:00:37.070 --> 00:00:42.060
+Double quoted strings, they have certain
+characters, certain special characters.
+
+12
+00:00:42.060 --> 00:00:47.810
+For example, /n for new line, /t for tab.
+
+13
+00:00:47.810 --> 00:00:51.600
+And also, another very interesting
+feature that they have is they'll allow
+
+14
+00:00:51.600 --> 00:00:53.650
+string interpolation.
+
+15
+00:00:53.650 --> 00:00:54.970
+So if you used to,
+
+16
+00:00:54.970 --> 00:00:59.850
+from other languages, concatenating
+strings with a plus, forget about it.
+
+17
+00:01:01.690 --> 00:01:03.930
+And we'll see an example
+of this in a minute.
+
+18
+00:01:03.930 --> 00:01:07.032
+But first, let's go back to the single and
+double quoted strings.
+
+19
+00:01:07.032 --> 00:01:11.696
+So a single quoted string,
+even if it has a \n in it,
+
+20
+00:01:11.696 --> 00:01:14.780
+it's gonna just display it as is.
+
+21
+00:01:14.780 --> 00:01:17.914
+Whereas a double quoted will
+treat it as a new line, and
+
+22
+00:01:17.914 --> 00:01:20.240
+that's what you see as the output here.
+
+23
+00:01:21.880 --> 00:01:25.020
+Now, here's where string
+interpolation comes in.
+
+24
+00:01:25.020 --> 00:01:30.070
+Let's say you have a method
+that has parameter one and
+
+25
+00:01:30.070 --> 00:01:32.900
+two, and you need to multiply them.
+
+26
+00:01:32.900 --> 00:01:38.060
+And it needs to return a string that
+says one multiplied by two equals
+
+27
+00:01:38.060 --> 00:01:38.901
+one multiplied by two.
+
+28
+00:01:40.260 --> 00:01:44.740
+So as you can see what's happening here
+is that you are embedding the values,
+
+29
+00:01:44.740 --> 00:01:49.418
+eval actual parameters, or variables,
+
+30
+00:01:49.418 --> 00:01:54.170
+or even an expression,
+one multiplied by two, and
+
+31
+00:01:54.170 --> 00:01:59.870
+that gets converted to a string and
+you have one nice, long string.
+
+32
+00:02:01.010 --> 00:02:02.540
+And this is very useful, I think, and
+
+33
+00:02:02.540 --> 00:02:07.940
+very expressive in that you don't
+have to stop and type one string,
+
+34
+00:02:07.940 --> 00:02:13.670
+then close it, then put a plus,
+type a value, type another string.
+
+35
+00:02:13.670 --> 00:02:15.060
+It sort of just flows.
+
+36
+00:02:17.086 --> 00:02:21.090
+String methods usually
+return a copy of the string,
+
+37
+00:02:21.090 --> 00:02:24.184
+they don't modify the string in place,
+
+38
+00:02:24.184 --> 00:02:30.990
+unless you use the version of a method
+that has an exclamation at the end of it.
+
+39
+00:02:30.990 --> 00:02:36.100
+In that case, it just alerts you and
+says hey, are you sure you want
+
+40
+00:02:36.100 --> 00:02:41.770
+to modify the string, and if you still do,
+you use that version of a method.
+
+41
+00:02:41.770 --> 00:02:44.840
+And, that will modify
+this string in place and
+
+42
+00:02:44.840 --> 00:02:46.110
+we'll see an example of that in a minute.
+
+43
+00:02:47.470 --> 00:02:53.560
+Another way to create a string is
+by using the percent upper case Q.
+
+44
+00:02:53.560 --> 00:02:57.651
+And this behaves very similar
+to a double quoted string but
+
+45
+00:02:57.651 --> 00:03:02.260
+another feature and adds that
+allows you to span multiple lines.
+
+46
+00:03:07.166 --> 00:03:11.730
+So let's take a look at some
+examples of using string methods.
+
+47
+00:03:11.730 --> 00:03:16.950
+You have my name variable which is for
+example a space and the word Tim.
+
+48
+00:03:18.210 --> 00:03:23.620
+Now you could lstrip, which basically
+means less strip, and capitalize,
+
+49
+00:03:23.620 --> 00:03:28.440
+which converts it to Tim without
+the space in front of it.
+
+50
+00:03:29.600 --> 00:03:33.930
+Now but when you print, when you
+look at the my_name variable again,
+
+51
+00:03:33.930 --> 00:03:36.460
+you'll see that the variable
+did not change.
+
+52
+00:03:36.460 --> 00:03:37.600
+Why's that?
+
+53
+00:03:37.600 --> 00:03:41.730
+We'll that's because all of these
+methods returned a copy but
+
+54
+00:03:41.730 --> 00:03:45.100
+didn't actually modify the variable.
+
+55
+00:03:45.100 --> 00:03:48.490
+If you would want to modify a variable
+you would use the lstrip version
+
+56
+00:03:48.490 --> 00:03:52.040
+with an exclamation which
+is a destructive version
+
+57
+00:03:52.040 --> 00:03:56.180
+which will actually modify
+the variable in place.
+
+58
+00:03:56.180 --> 00:03:59.935
+Another way to override the actual
+content of a variable is
+
+59
+00:03:59.935 --> 00:04:03.150
+by using this array notation,
+so, in this case,
+
+60
+00:04:03.150 --> 00:04:08.130
+we're overriding the first character
+of my_name variable over K, so now if
+
+61
+00:04:08.130 --> 00:04:12.985
+you print out my name variable you'll
+see where it has been changed to Kim.
+
+62
+00:04:15.929 --> 00:04:22.110
+Here's an example of using a quote,
+the percent upper case Q.
+
+63
+00:04:22.110 --> 00:04:24.610
+So it's a hot day outside,
+grab your umbrellas.
+
+64
+00:04:26.140 --> 00:04:32.320
+Here we see that the extreme current
+weather also supports the method lines,
+
+65
+00:04:32.320 --> 00:04:35.810
+which breaks the string
+up into multiple lines.
+
+66
+00:04:35.810 --> 00:04:40.840
+And then you're able to use a block,
+as we saw
+
+67
+00:04:40.840 --> 00:04:44.660
+blocks are very good at iterating things,
+and
+
+68
+00:04:44.660 --> 00:04:49.530
+the block takes line as a parameter and
+then you could modify,
+
+69
+00:04:49.530 --> 00:04:54.330
+you could substitute the strings inside.
+
+70
+00:04:54.330 --> 00:04:58.040
+At the end of the day you get, it's
+a rainy day outside, grab your umbrellas,
+
+71
+00:04:58.040 --> 00:05:01.640
+instead of, it's a hot day
+outside grab your umbrellas.
+
+72
+00:05:01.640 --> 00:05:04.380
+So, a lot of really useful methods and
+
+73
+00:05:04.380 --> 00:05:09.110
+you can really process information that
+you have in very interesting ways.
+
+74
+00:05:11.170 --> 00:05:13.626
+So strings API should go through CRL.
+
+75
+00:05:13.626 --> 00:05:18.100
+Ruby dock core 2.2.2.
+
+76
+00:05:18.100 --> 00:05:22.530
+You'll see many different
+methods that the string has.
+
+77
+00:05:22.530 --> 00:05:27.280
+And actually the API
+the Ruby has is really nice.
+
+78
+00:05:28.680 --> 00:05:33.212
+A lot of examples that you could see
+how things work and it's really nice.
+
+79
+00:05:35.303 --> 00:05:40.287
+The other kind of a string that actually
+catches people by surprise is this idea of
+
+80
+00:05:40.287 --> 00:05:41.560
+a symbol.
+
+81
+00:05:41.560 --> 00:05:43.010
+So what is a symbol?
+
+82
+00:05:43.010 --> 00:05:47.380
+Symbol is basically a colon
+followed by some string.
+
+83
+00:05:47.380 --> 00:05:50.160
+So for example, :foo-.
+
+84
+00:05:50.160 --> 00:05:53.200
+Symbols are just are highly
+optimized strings.
+
+85
+00:05:55.160 --> 00:06:01.550
+They have much less methods than strings
+and they really serve a different purpose.
+
+86
+00:06:01.550 --> 00:06:05.160
+They are constant names that
+you don't have to pre declare.
+
+87
+00:06:05.160 --> 00:06:10.060
+And if you think about it there are two
+types of strings, there is a string that
+
+88
+00:06:10.060 --> 00:06:15.160
+you want to look at the content,
+you want to maybe make it uppercase,
+
+89
+00:06:15.160 --> 00:06:21.375
+lowercase, you want to extract something
+from the content, so that's one type.
+
+90
+00:06:21.375 --> 00:06:23.235
+That's not what symbols are.
+
+91
+00:06:23.235 --> 00:06:27.825
+Symbols are what's called a stands for
+something string type.
+
+92
+00:06:27.825 --> 00:06:30.535
+And basically the idea here
+is that it's a symbol.
+
+93
+00:06:30.535 --> 00:06:31.385
+It's a symbol.
+
+94
+00:06:31.385 --> 00:06:33.735
+Think of like a flag or something.
+
+95
+00:06:33.735 --> 00:06:38.915
+It's just an indication that you want
+something to happen, but you don't really
+
+96
+00:06:38.915 --> 00:06:43.900
+care what the exact string is and
+if it's uppercase, lowercase.
+
+97
+00:06:43.900 --> 00:06:45.740
+That's not really the point of a symbol.
+
+98
+00:06:47.070 --> 00:06:48.460
+And we'll see how they are used.
+
+99
+00:06:49.950 --> 00:06:52.900
+The symbols are guaranteed
+to be unique and immutable.
+
+100
+00:06:53.980 --> 00:06:57.260
+Now, if you want to go back and
+forth between a string and a symbol,
+
+101
+00:06:57.260 --> 00:06:59.030
+you could do it as well.
+
+102
+00:06:59.030 --> 00:07:01.730
+So for example, you're using a symbol but
+
+103
+00:07:01.730 --> 00:07:07.010
+maybe you decide that you didn't want
+to modify the content of the string,
+
+104
+00:07:07.010 --> 00:07:13.970
+you could just convert the symbol, call
+the to_s method to convert it to a string.
+
+105
+00:07:13.970 --> 00:07:17.250
+Now if something is a string you
+could also convert it to a symbol
+
+106
+00:07:17.250 --> 00:07:21.670
+by saying to_sym.
+
+107
+00:07:21.670 --> 00:07:27.390
+So a typical example of
+what you see in Ruby,
+
+108
+00:07:27.390 --> 00:07:31.820
+a symbol is a representation
+of a method name.
+
+109
+00:07:31.820 --> 00:07:38.210
+So for example on any object in Ruby,
+you could just ask what are my methods?
+
+110
+00:07:38.210 --> 00:07:42.090
+And it'll give you all the methods
+that this object supports.
+
+111
+00:07:43.180 --> 00:07:48.660
+In this case, actually, we are doing
+something a little more than that,
+
+112
+00:07:48.660 --> 00:07:55.000
+we are grepping the methods for
+the word case.
+
+113
+00:07:56.820 --> 00:08:01.540
+So as you could see here our
+string hello has an upcase method,
+
+114
+00:08:01.540 --> 00:08:07.390
+a swapcase, which basically makes all
+lowercase uppercase, uppercase lowercase.
+
+115
+00:08:07.390 --> 00:08:11.080
+And it's interesting
+that as you would expect,
+
+116
+00:08:12.570 --> 00:08:15.980
+there is a regular version
+that returns a copy of string.
+
+117
+00:08:15.980 --> 00:08:21.450
+And there is also very destructive
+version that will actually modify
+
+118
+00:08:21.450 --> 00:08:22.780
+this string in place.
+
+119
+00:08:22.780 --> 00:08:24.768
+So upcase, downcase, swapcase.
+
+120
+00:08:24.768 --> 00:08:26.188
+As well.
+
+121
+00:08:26.188 --> 00:08:29.270
+But the point of this slide is that
+
+122
+00:08:30.360 --> 00:08:35.000
+this is a perfectly good
+application of what a symbol is.
+
+123
+00:08:35.000 --> 00:08:37.400
+A method name is a symbol.
+
+124
+00:08:37.400 --> 00:08:41.490
+You're not interested in changing
+the method name to something else,
+
+125
+00:08:41.490 --> 00:08:44.350
+it's just a way to capture information.
+
+126
+00:08:44.350 --> 00:08:50.790
+The object has bunch of methods and
+method names are just symbols.
+
+127
+00:08:50.790 --> 00:08:56.040
+Now, if this still doesn't sound
+convincing, there's definitely
+
+128
+00:08:56.040 --> 00:09:02.710
+a gray line between symbols and
+strings and a lot of times.
+
+129
+00:09:02.710 --> 00:09:07.120
+You would expect it to be a string,
+and it's a symbol or vice versa.
+
+130
+00:09:07.120 --> 00:09:14.010
+And actually, it's interesting that Ruby
+itself, in the earlier versions of Ruby,
+
+131
+00:09:14.010 --> 00:09:18.980
+the names of methods were not symbols,
+they were strings.
+
+132
+00:09:18.980 --> 00:09:23.890
+But, it really just becomes
+a matter of taste a lot of times.
+
+133
+00:09:23.890 --> 00:09:26.250
+Something just makes
+more sense as a symbol.
+
+134
+00:09:27.580 --> 00:09:31.330
+Some other things make
+more sense as strings.
+
+135
+00:09:31.330 --> 00:09:37.000
+And sometimes as we see by hashes,
+when we get to hashes,
+
+136
+00:09:37.000 --> 00:09:41.910
+it actually makes a lot of sense to use
+a symbol as opposed to using a string.
+
+137
+00:09:44.030 --> 00:09:44.600
+In summary.
+
+138
+00:09:46.360 --> 00:09:49.470
+Strings give you the ability
+to use interpolation.
+
+139
+00:09:49.470 --> 00:09:52.050
+And that's actually a very cool and
+expressive, and
+
+140
+00:09:52.050 --> 00:09:53.300
+it lets you finish your thought.
+
+141
+00:09:55.340 --> 00:09:59.180
+Strings actually have a lot
+of really useful API and
+
+142
+00:09:59.180 --> 00:10:00.220
+you guys should go look into that.
+
+143
+00:10:01.590 --> 00:10:03.030
+So what's next?
+
+144
+00:10:03.030 --> 00:10:04.971
+Next, we'll talk about arrays.
